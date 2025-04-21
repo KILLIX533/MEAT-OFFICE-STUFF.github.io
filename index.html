@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MEAT OFFICE STUFF</title>
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="favicon.ico" type="image/ico">
   <style>
     body {
       background: linear-gradient(to right, #1c0000, #3b0000, #1c0000);
@@ -10,7 +12,7 @@
       font-family: monospace;
       margin: 0;
       padding: 0;
-      overflow: hidden;
+      overflow: hidden; /* Чтобы не было полос прокрутки */
     }
 
     .cover-container {
@@ -44,6 +46,7 @@
       box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
     }
 
+    /* Плавный переход для темного экрана */
     .overlay {
       position: fixed;
       top: 0;
@@ -57,6 +60,7 @@
       z-index: 999;
     }
 
+    /* Стиль при активации нажатия */
     .cover-container:active .cover {
       transform: scale(1.1);
     }
@@ -73,7 +77,7 @@
   </style>
 </head>
 <body>
-  <div class="overlay" id="overlay"></div>
+  <div class="overlay" id="overlay"></div> <!-- Затухающий экран -->
 
   <div style="display:flex; align-items:center; justify-content:flex-start; height:100vh;">
     <div class="cover-container" style="margin-left:50px;" onclick="startTransition()">
@@ -87,11 +91,20 @@
   <script>
     function startTransition() {
       const overlay = document.getElementById('overlay');
+
+      // Показываем overlay (затухающий экран)
       overlay.style.opacity = '1';
+
+      // После завершения анимации (0.5s) переходим на страницу meatoffice.html
       setTimeout(() => {
-        window.location.href = 'meatoffice.html';
-      }, 500);
+        window.location.href = 'meatoffice.html'; // Переход на страницу
+      }, 500); // 500ms - время, необходимое для завершения анимации затухания
     }
+
+    // Показываем иконку сразу после загрузки
+    window.onload = function() {
+      document.getElementById('overlay').style.opacity = '0';
+    };
   </script>
 </body>
 </html>
