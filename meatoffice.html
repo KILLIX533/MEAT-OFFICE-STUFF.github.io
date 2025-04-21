@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEAT OFFICE (KILLIX) DRUM KIT</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #1c0000, #3b0000, #1c0000);
+      color: white;
+      font-family: monospace;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .content {
+      text-align: center;
+      padding: 50px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .content h1 {
+      font-size: 2.5em;
+      color: #ff0000;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .download-button {
+      background-color: #ff0000;
+      color: white;
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 1.2em;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    .download-button:hover {
+      background-color: #cc0000;
+    }
+
+    /* Плавный переход для темного экрана */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      opacity: 1;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      z-index: 999;
+    }
+
+    /* Кнопка для стрелки в левом верхнем углу */
+    .arrow-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 2em;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .arrow-button:hover {
+      transform: scale(1.2); /* Увеличиваем стрелку при наведении */
+    }
+
+    /* Кнопка для переключения языка */
+    .language-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #ff0000;
+      color: white;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .language-button:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay"></div> <!-- Затухающий экран -->
+
+  <div class="content" id="content">
+    <h1 id="title">MEAT OFFICE (KILLIX) DRUM KIT</h1>
+    <p id="description">При скачивании драм кита MEAT OFFICE (KILLIX) DRUM KIT, вы получаете не просто набор звуков, а настоящий инструмент для создания уникальных битов. Но будьте осторожны. Этот драм кит — не игрушка. Он содержит мощные звуки, которые могут изменить вашу музыкальную реальность. Если вы решите поделиться им с кем попало — не ожидайте, что вам это сойдет с рук. Он наделен своей силой, и она вернется к вам. Осторожно, темные силы вашего звукового мира готовы восстать против вас, если вы не будете внимательны с этим китом. Пользуйтесь на свой страх и риск.</p>
+    <a href="MEAT OFFICE (KILLIX DRUM KIT).zip" class="download-button" id="download-button" download>Скачать драм кит</a>
+  </div>
+
+  <button class="language-button" id="language-button" onclick="toggleLanguage()">ENG</button>
+
+  <!-- Стрелка для перехода на index.html -->
+  <button class="arrow-button" id="arrow-button" onclick="goToIndex()">
+    &#8592; <!-- Символ стрелки влево -->
+  </button>
+
+  <script>
+    // Функция для переключения языка
+    function toggleLanguage() {
+      var title = document.getElementById('title');
+      var description = document.getElementById('description');
+      var languageButton = document.getElementById('language-button');
+      var downloadButton = document.getElementById('download-button');
+
+      if (languageButton.innerHTML === 'ENG') {
+        title.innerHTML = 'MEAT OFFICE (KILLIX) DRUM KIT';
+        description.innerHTML = 'When you download the MEAT OFFICE (KILLIX) DRUM KIT, you’re not just getting a sound pack, but a true instrument for creating unique beats. But beware. This drum kit is no toy. It contains powerful sounds that can change your musical reality. If you decide to share it with just anyone — don’t expect to get away with it. It is endowed with its own power, and it will come back to you. Be careful, the dark forces of your sound world are ready to rise against you if you’re not careful with this kit. Use it at your own risk.';
+        downloadButton.innerHTML = 'Download Drum Kit'; // Перевод кнопки
+        languageButton.innerHTML = 'RU';
+      } else {
+        title.innerHTML = 'MEAT OFFICE (KILLIX) DRUM KIT';
+        description.innerHTML = 'При скачивании драм кита MEAT OFFICE (KILLIX) DRUM KIT, вы получаете не просто набор звуков, а настоящий инструмент для создания уникальных битов. Но будьте осторожны. Этот драм кит — не игрушка. Он содержит мощные звуки, которые могут изменить вашу музыкальную реальность. Если вы решите поделиться им с кем попало — не ожидайте, что вам это сойдет с рук. Он наделен своей силой, и она вернется к вам. Осторожно, темные силы вашего звукового мира готовы восстать против вас, если вы не будете внимательны с этим китом. Пользуйтесь на свой страх и риск.';
+        downloadButton.innerHTML = 'Скачать драм кит'; // Перевод кнопки
+        languageButton.innerHTML = 'ENG';
+      }
+    }
+
+    // Включаем экран плавно после загрузки страницы
+    window.onload = function() {
+      const overlay = document.getElementById('overlay');
+      overlay.style.transition = 'opacity 0.5s ease'; // Плавный переход
+      overlay.style.opacity = '0'; // Затухаем экран
+    };
+
+    // Функция для перехода на index.html с эффектом затухания
+    function goToIndex() {
+      const overlay = document.getElementById('overlay');
+      overlay.style.transition = 'opacity 1s ease'; // Плавный переход
+      overlay.style.opacity = '1'; // Включаем экран
+      setTimeout(function() {
+        window.location.href = 'index.html'; // Переход на index.html после затухания
+      }, 1000); // Задержка перед переходом
+    }
+  </script>
+</body>
+</html>
